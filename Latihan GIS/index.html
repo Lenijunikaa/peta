@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Peta Kota Praya</title>
+    <link
+      rel="stylesheet"
+      href="leaflet/leaflet.css"
+    />
+    <script src="leaflet/leaflet.js"></script>
+  </head>
+
+  <body>
+    <div id="peta" style="width: 100%; height: 580px"></div>
+    <script>
+      var mapOptions = {
+        center: [-8.7216479,116.2148602],
+        zoom: 10,
+      };
+
+      var map = new L.map("peta", mapOptions);
+
+      var layer = new L.TileLayer(
+        "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      );
+
+      var markerOptions = {
+        title: "MyLocations",
+        clickable: true,
+      };
+
+      var stmik = L.marker([-8.69819,116.28242]);
+      var lesehan = L.marker([-8.6981066,116.2813037]);
+      var yanmu = L.marker([-8.69772,116.28213]);
+      var surau = L.marker([-8.69790,116.28500]);
+      var rumah = L.marker([-8.69849, 116.28539]);
+
+      stmik.bindPopup("STMIK Lombok").openPopup();
+      stmik.addTo(map);
+      lesehan.bindPopup("Lesehan 33").openPopup();
+      lesehan.addTo(map);
+      yanmu.bindPopup("Yanmu NW Praya").openPopup();
+      yanmu.addTo(map);
+      surau.bindPopup("Surau Akhlaqul Amin").openPopup();
+      surau.addTo(map);
+      rumah.bindPopup("Kampung Dangah, Rumah Lenii").openPopup();
+      rumah.addTo(map);
+
+
+      map.addLayer(layer);
+    </script>
+  </body>
+</html>
